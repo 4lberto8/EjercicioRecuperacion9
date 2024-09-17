@@ -4,10 +4,10 @@
 #include "cstdlib"
 #include "ctime"
 
-#define DERECHA 77
-#define IZQUIERDA 75
-#define ARRIBA 72
-#define ABAJO 80
+#define DER 77
+#define IZQ 75
+#define ARR 72
+#define ABA 80
 
 #define COLUMNAS 180
 #define FILAS 60
