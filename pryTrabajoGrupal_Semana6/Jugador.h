@@ -2,7 +2,7 @@
 class Jugador{
 protected:
     // Posicion del jugador
-    int x_P = 37, y_P = 31;
+    int x_P = 55, y_P = 15;
 public:
     Jugador() {};
 	~Jugador() {};
