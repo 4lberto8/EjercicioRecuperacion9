@@ -15,6 +15,8 @@ private:
 	vector<Agua*>arreglo3;
 	vector<Semillas*>arreglo4;
 	vector<Reciclables*>arreglo5;
+
+
 public:
 	Juego() {};
 	~Juego() {};
@@ -126,7 +128,7 @@ public:
 				}
 			}
 		}
-		Arbol *a = new Arbol (15, 16);
+		Arbol* a = new Arbol(15, 16);
 		a->dibujar_arbol();
 		while (1) {
 			if (_kbhit()) {

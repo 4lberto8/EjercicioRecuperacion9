@@ -3,6 +3,7 @@
 //SINOPSIS:										
 
 #include "Controladora.h"
+#include "Recurso.h" 
 int main() {
 	wS(120, 36);
 
@@ -12,7 +13,7 @@ int main() {
 
 	Presentacion* objPresentacion;
 	objPresentacion = new Presentacion;
-
+	Recurso* objRecurso = new Recurso;
 	Juego* objJuego;
 	objJuego = new Juego;
 
@@ -24,6 +25,7 @@ int main() {
 		}
 		Console::Title = secs.ToString();
 		//objPresentacion->PRESENTACION_539_15_v2(11,10);
+		objRecurso->generarRecursos();
 		objJuego->nivel_prueba();
 	}
 	return 0;

@@ -16,14 +16,22 @@ public:
 		AguaY = y;
 	}
 	void dibujar_agua(int x, int y) {
-		p(x + 1, y); b_c(1), f_c(2); cout << "_";
-		p(x, y + 1);cout << "/ \\";
-		p(x + 1, y + 2); cout << "\\_/";
+		Console::SetCursorPosition(AguaX, AguaY);
+		Console::ForegroundColor = ConsoleColor::DarkBlue;
+		cout << " _ ";
+		Console::SetCursorPosition(AguaX, AguaY + 1);
+		cout << "/ \\";
+		Console::SetCursorPosition(AguaX, AguaY + 2);
+		cout << "\\_/";
 	}
 	void borrar_agua(int x, int y) {
-		p(x + 1, y); b_c(1), f_c(15); cout << " ";
-		p(x, y + 1); cout << "   ";
-		p(x + 1, y + 2); cout << "   ";
+		Console::SetCursorPosition(AguaX, AguaY);
+		Console::ForegroundColor = ConsoleColor::Black;
+		cout << "   ";
+		Console::SetCursorPosition(AguaX, AguaY + 1);
+		cout << "    ";
+		Console::SetCursorPosition(AguaX, AguaY + 2);
+		cout << "    ";
 	}
 	int getAguaX() {
 		return AguaX;
