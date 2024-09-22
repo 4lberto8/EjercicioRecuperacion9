@@ -2,6 +2,7 @@
 //#include "Fondo.h"
 #include "Recurso.h" 
 #include "Dependencias.h"
+#include "Fondo.h"
 #include "Jugador.h"
 #include "Juego.h"
 #include "ArregloEnemigo.h"
@@ -10,8 +11,13 @@
 #include "ArregloSemillas.h"
 #include "ArregloReciclable.h"
 
-class Juego : protected Jugador { // Herencia
+class Juego : protected Jugador {
 private:
+	//vector<Enemigo*>arreglo1;
+	vector<Arbol*>arreglo2;
+	vector<Agua*>arreglo3;
+	vector<Semillas*>arreglo4;
+	vector<Reciclables*>arreglo5;
 public:
 	Juego() {};
 	~Juego() {};
@@ -172,7 +178,9 @@ public:
 				if (fondo_juego[f][c] == 21) {
 					b_c(3), f_c(1);
 					cout << char(223);
+					
 				}
+				b_c(1), f_c(15);
 			}
 		}
 		clock_t t, ts;//VARAIBLES PARA SABER EL TIEMPO
@@ -182,8 +190,12 @@ public:
 		//a->dibujar_arbol();
 
 		while (1) {
-			if (_kbhit())
+			if ((t = clock()) >= ts)
 			{
+				++secs;
+				ts = t + CLOCKS_PER_SEC;
+			}
+			if (_kbhit()) {
 				char tecla = getch();
 				borrar_jugador(x_P, y_P);
 
@@ -198,4 +210,9 @@ public:
 		//Arbol* a = new Arbol(15, 16);
 		//a->dibujar_arbol();
 	}
+};
+
+class colisionRecurso {
+private:
+
 };

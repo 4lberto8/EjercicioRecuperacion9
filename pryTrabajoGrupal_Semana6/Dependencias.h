@@ -1,6 +1,9 @@
 #pragma once
 #include "iostream"
 #include "conio.h"
+#include "vector"
+#include "stdio.h"
+#include "sstream"
 #include "cstdlib"
 #include "ctime"
 
@@ -9,11 +12,16 @@
 #define ARR 72
 #define ABA 80
 
-#define COLUMNAS 180
-#define FILAS 60
+#define COLUMNAS 120
+#define FILAS 36
+//limites son x12 y10 a x110 y32
+#define leftlimitx 12
+#define rightlimitx 110
+#define uplimity 10
+#define downlimity 32
 
-using namespace System;
 using namespace std;
+using namespace System;
 
 void p(short x, short y) {
     Console::SetCursorPosition(x, y);
