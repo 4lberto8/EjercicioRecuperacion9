@@ -2,11 +2,18 @@
 class Jugador{
 protected:
     // Posicion del jugador
-    int x_P = 55, y_P = 15;
+    int x_P = 57, y_P = 20;
 public:
     Jugador() {};
+    Jugador(int x, int y) : x_P(x), y_P(y) {};
 	~Jugador() {};
+    int returnJugadorX() {
+        return x_P;
+    }
 
+    int returnJugadorY() {
+        return y_P;
+    }
     // ===================================================== Primera version del jugador
     void dibujar_jugador_v1(int x, int y) {
         b_c(1), f_c(10);

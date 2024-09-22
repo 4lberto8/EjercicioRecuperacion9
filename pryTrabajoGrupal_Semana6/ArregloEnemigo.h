@@ -20,5 +20,6 @@ public:
 	vector<Enemigo*> retornar() {
 		return arreglo1;
 	}
+
 	~ArrEnemigo() {};
 };

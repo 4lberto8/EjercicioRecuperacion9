@@ -17,17 +17,14 @@ public:
 	}
 	void dibujar_residuo() {
 		Console::SetCursorPosition(ReciX, ReciY);
-		Console::ForegroundColor = ConsoleColor::DarkGray;
-		cout << "@@@";
-		Console::SetCursorPosition(ReciX, ReciY + 1);
-		cout << "@@@";
+		Console::ForegroundColor = ConsoleColor::Gray;
+		cout << "#";
 	}
 	void borrar_residuo() {
 		Console::SetCursorPosition(ReciX, ReciY);
 		Console::ForegroundColor = ConsoleColor::Black;
-		cout << "   ";
-		Console::SetCursorPosition(ReciX, ReciY + 1);
-		cout << "   ";
+		cout << " ";
+
 	}
 	int getReciX() {
 		return ReciX;

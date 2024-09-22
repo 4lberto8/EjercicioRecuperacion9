@@ -1,4 +1,5 @@
 #pragma once
+#include "Dependencias.h"
 class Enemigo
 {
 protected:
@@ -17,27 +18,45 @@ public:
 		EnmY = y;
 	}
 	void dibujar_enemigo() {
-
 		Console::SetCursorPosition(EnmX, EnmY);
 		Console::ForegroundColor = ConsoleColor::Red;
-		cout << " °\\/°";
+		cout << "{@@}";
 		Console::SetCursorPosition(EnmX, EnmY + 1);
-		cout << "  __  ";
-		Console::SetCursorPosition(EnmX, EnmY + 2);
-		cout << " [L l] ";
-		Console::SetCursorPosition(EnmX, EnmY + 3);
-		cout << " ==== ";
+		cout << "/\"\"\\";
 	}
 	void borrar_enemigo() {
 		Console::SetCursorPosition(EnmX, EnmY);
 		Console::ForegroundColor = ConsoleColor::Black;
-		cout << "     ";
+		cout << "    ";
 		Console::SetCursorPosition(EnmX, EnmY + 1);
-		cout << "     ";
-		Console::SetCursorPosition(EnmX, EnmY + 2);
-		cout << "     ";
-		Console::SetCursorPosition(EnmX, EnmY + 3);
-		cout << "     ";
+		cout << "         ";
+	}
+	void mover_enemigo(int direccion) {
+//Direccion 0 es ABAJO
+//Direccion 1 es ARRIBA
+//Direccion 2 es Derecha
+//Direccion 3 es Izquierda
+		if (direccion == 0) {
+			if (EnmY - 1 != uplimity) {
+				EnmY--;
+			}
+		}
+		if (direccion == 1) {
+			if (EnmY + 1 != downlimity) {
+				EnmY++;
+			}
+		}
+		if (direccion == 2) {
+			if (EnmX + 1 != rightlimitx) {
+				EnmX++;
+			}
+		}
+		if (direccion == 3) {
+			if (EnmX - 1 != leftlimitx) {
+				EnmX--;
+			}
+		}
+
 	}
 	int getEnmX() {
 		return EnmX;

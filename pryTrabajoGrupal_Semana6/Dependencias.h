@@ -3,6 +3,7 @@
 #include "conio.h"
 #include "vector"
 #include "stdio.h"
+#include "sstream"
 #include "cstdlib"
 #include "ctime"
 
@@ -13,6 +14,11 @@
 
 #define COLUMNAS 120
 #define FILAS 36
+//limites son x12 y10 a x110 y32
+#define leftlimitx 12
+#define rightlimitx 110
+#define uplimity 10
+#define downlimity 32
 
 using namespace std;
 using namespace System;
@@ -64,28 +70,3 @@ void f_c(short foreground_color) {
     case 16: Console::ForegroundColor = ConsoleColor::DarkCyan; break;
     }
 }
-
-class Movil {
-protected:
-    int x, y;
-    double dX, dY;
-    short vida;
-public:
-    Movil() {
-        x = 0;
-        y = 0;
-        dX = 0;
-        dY = 0;
-        vida = 0;
-    };
-    ~Movil() {};
-
-    virtual void dibujar() {};
-    virtual void mover() {};
-    virtual short getVida() { return vida; }
-
-    short getX() { return x; }
-    short gety() { return y; }
-    double getdX() { return dX; }
-    double getdY() { return dY; }
-};
