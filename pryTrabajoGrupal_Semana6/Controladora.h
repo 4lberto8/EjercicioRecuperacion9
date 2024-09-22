@@ -187,6 +187,8 @@ public:
 		ts = clock() + CLOCKS_PER_SEC;
 		Recurso* objRecurso = new Recurso;
 		objRecurso->generarRecursos();
+		ObtenerRecurso* pickup = new ObtenerRecurso(1,1);
+
 		while (1) {
 			if ((t = clock()) >= ts)
 			{
@@ -201,8 +203,37 @@ public:
 				if (tecla == IZQ && (fondo_juego[y_P][x_P] == 0 && fondo_juego[y_P + 1][x_P - 1] == 0 && fondo_juego[y_P + 2][x_P - 1] == 0)) x_P--;
 				if (tecla == ARR && (fondo_juego[y_P][x_P] == 0 && fondo_juego[y_P - 1][x_P + 1] == 0 && fondo_juego[y_P - 1][x_P + 2] == 0 && fondo_juego[y_P - 1][x_P + 3] == 0 && fondo_juego[y_P - 1][x_P + 4] == 0 && fondo_juego[y_P][x_P + 5] == 0)) y_P--;
 				if (tecla == ABA && (fondo_juego[y_P][x_P] == 0 && fondo_juego[y_P][x_P + 1] == 0 && fondo_juego[y_P + 3][x_P + 2] == 0 && fondo_juego[y_P + 3][x_P + 3] == 0 && fondo_juego[y_P + 3][x_P + 4] == 0 && fondo_juego[y_P + 3][x_P + 5] == 0)) y_P++;
+				
 			}
 			dibujar_jugador_v3(x_P, y_P);
+			pickup->ObtenerAgua();
+			pickup->ObtenerReciclable();
+			pickup->ObtenerSemilla();
+			if (agua && reciclable && semillas == 1)
+			{
+				agua--;
+				reciclable--;
+				semillas--;
+				arbol++;
+			}
+			if (arbol == 7)
+			{
+				cout << "\n\n\t\t[ GANASTE EL JUEGO  !!!!!!!!!]\n\n";
+				getch();
+				getch();
+				getch();
+				getch();
+				break;
+			}
+			if (secs == 25)
+			{
+				cout << "\n\n\t\t[ HAS PERDIDO ]\n\n";
+				getch();
+				getch();
+				getch();
+				getch();
+				break;
+			}
 			Console::Title = "Tiempo: "+secs.ToString() + " Vidas:" + vidas.ToString()+" Semillas: "+semillas.ToString()+" Agua: "+agua.ToString()+" Reciclable: "+reciclable.ToString();
 		}
 		//Arbol* a = new Arbol(15, 16);

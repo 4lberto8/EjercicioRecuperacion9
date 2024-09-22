@@ -7,6 +7,7 @@ int vidas = 100;
 int semillas = 0;
 int agua = 0;
 int reciclable = 0;
+int arbol = 0;
 class ColisionEnemigo : public Jugador, public ArrEnemigo {//Creando clase con herencia aplicada
 
 public://El enemigo nos toca -> constructor de nuestra clase -> luego de jugador -> luego de arreglo de enemigos
@@ -37,9 +38,7 @@ public://El enemigo nos toca -> constructor de nuestra clase -> luego de jugador
 
 class ObtenerRecurso : public Jugador, public Recurso, public ArrSemillas, public ArrAgua, public ArrReciclables {
 public://atrapan el queso -> constructor de nuestra clase -> luego del raton -> luego del queso
-	ObtenerRecurso(int x, int y) : Jugador(), Recurso() {
-
-	}
+	ObtenerRecurso(int x, int y) : Jugador(), Recurso() ,ArrSemillas(),ArrAgua(),ArrReciclables(){}
 	void ObtenerSemilla() {// Obtener recurso
 
 		for (int i = 0; i < arreglo4.size(); i++) {//vamos desde el inicio del vector hast el ultimp
@@ -59,6 +58,7 @@ public://atrapan el queso -> constructor de nuestra clase -> luego del raton -> 
 
 		}
 	}
+
 	void ObtenerAgua() {// Obtener recurso
 
 		for (int i = 0; i < arreglo3.size(); i++) {//vamos desde el inicio del vector hast el ultimp
@@ -82,9 +82,9 @@ public://atrapan el queso -> constructor de nuestra clase -> luego del raton -> 
 
 		for (int i = 0; i < arreglo5.size(); i++) {//vamos desde el inicio del vector hast el ultimp
 
-			int aX = arreglo5.at(i)->getReciX();
-			int aY = arreglo5.at(i)->getReciX();
-			if ((x_P == aX) == true && (y_P == aY) == true) {
+			int rX = arreglo5.at(i)->getReciX();
+			int rY = arreglo5.at(i)->getReciX();
+			if ((x_P == rX) == true && (y_P == rY) == true) {
 				//pasamos a limpiar el espacio usado en la consola del recurso
 				arreglo5.at(i)->borrar_residuo();
 				arreglo5.at(i)->setReciX(0);//seteamos la posiciona 0 a X
