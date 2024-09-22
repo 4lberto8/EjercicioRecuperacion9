@@ -38,7 +38,7 @@ public:
 			int y = generarAleatorio(uplimity, downlimity);
 			Agua* nuevoAgua = new Agua(x, y);
 			aguaArr.agregarAgua(nuevoAgua);
-			nuevoAgua->dibujar_agua(x, y);
+			nuevoAgua->dibujar_agua();
 		}
 		for (int i = 0; i < 10; ++i) {
 			int x = generarAleatorio(leftlimitx, rightlimitx);

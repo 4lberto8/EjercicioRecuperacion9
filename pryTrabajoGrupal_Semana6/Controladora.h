@@ -1,5 +1,4 @@
 #pragma once
-//#include "Fondo.h"
 #include "Recurso.h" 
 #include "Dependencias.h"
 #include "Fondo.h"
@@ -11,7 +10,7 @@
 #include "ArregloSemillas.h"
 #include "ArregloReciclable.h"
 
-class Juego : protected Jugador {
+class Juego : protected Jugador{
 private:
 	//vector<Enemigo*>arreglo1;
 	vector<Arbol*>arreglo2;
@@ -85,10 +84,10 @@ public:
 			if (_kbhit()) {
 				char tecla = getch();
 				borrar_jugador_v3(x_P, y_P);
-				if (tecla == DERECHA && (nivel_prueba_1[y_P][x_P + 6] == 0 && nivel_prueba_1[y_P + 1][x_P + 6] == 0 && nivel_prueba_1[y_P + 2][x_P + 7] == 0 && nivel_prueba_1[y_P + 3][x_P + 5] == 0)) x_P++;
-				if (tecla == IZQUIERDA && (nivel_prueba_1[y_P][x_P] == 0 && nivel_prueba_1[y_P + 1][x_P] == 0 && nivel_prueba_1[y_P + 2][x_P - 1] == 0 && nivel_prueba_1[y_P + 3][x_P + 1] == 0)) x_P--;
-				if (tecla == ARRIBA && (nivel_prueba_1[y_P][x_P] == 0 && nivel_prueba_1[y_P + 1][x_P] == 0 && nivel_prueba_1[y_P - 1][x_P + 1] == 0 && nivel_prueba_1[y_P - 1][x_P + 2] == 0 && nivel_prueba_1[y_P - 1][x_P + 3] == 0 && nivel_prueba_1[y_P][x_P + 4] == 0 && nivel_prueba_1[y_P][x_P + 5] == 0 && nivel_prueba_1[y_P + 1][x_P + 6] == 0)) y_P--;
-				if (tecla == ABAJO && (nivel_prueba_1[y_P + 3][x_P] == 0 && nivel_prueba_1[y_P + 3][x_P + 1] == 0 && nivel_prueba_1[y_P + 4][x_P + 2] == 0 && nivel_prueba_1[y_P + 4][x_P + 3] == 0 && nivel_prueba_1[y_P + 4][x_P + 4] == 0 && nivel_prueba_1[y_P + 3][x_P + 5] == 0 && nivel_prueba_1[y_P + 3][x_P + 6] == 0)) y_P++;
+				if (tecla == DER && (nivel_prueba_1[y_P][x_P + 6] == 0 && nivel_prueba_1[y_P + 1][x_P + 6] == 0 && nivel_prueba_1[y_P + 2][x_P + 7] == 0 && nivel_prueba_1[y_P + 3][x_P + 5] == 0)) x_P++;
+				if (tecla == IZQ && (nivel_prueba_1[y_P][x_P] == 0 && nivel_prueba_1[y_P + 1][x_P] == 0 && nivel_prueba_1[y_P + 2][x_P - 1] == 0 && nivel_prueba_1[y_P + 3][x_P + 1] == 0)) x_P--;
+				if (tecla == ARR && (nivel_prueba_1[y_P][x_P] == 0 && nivel_prueba_1[y_P + 1][x_P] == 0 && nivel_prueba_1[y_P - 1][x_P + 1] == 0 && nivel_prueba_1[y_P - 1][x_P + 2] == 0 && nivel_prueba_1[y_P - 1][x_P + 3] == 0 && nivel_prueba_1[y_P][x_P + 4] == 0 && nivel_prueba_1[y_P][x_P + 5] == 0 && nivel_prueba_1[y_P + 1][x_P + 6] == 0)) y_P--;
+				if (tecla == ABA && (nivel_prueba_1[y_P + 3][x_P] == 0 && nivel_prueba_1[y_P + 3][x_P + 1] == 0 && nivel_prueba_1[y_P + 4][x_P + 2] == 0 && nivel_prueba_1[y_P + 4][x_P + 3] == 0 && nivel_prueba_1[y_P + 4][x_P + 4] == 0 && nivel_prueba_1[y_P + 3][x_P + 5] == 0 && nivel_prueba_1[y_P + 3][x_P + 6] == 0)) y_P++;
 			}
 			dibujar_jugador_v3(x_P, y_P);
 		}
@@ -186,9 +185,8 @@ public:
 		clock_t t, ts;//VARAIBLES PARA SABER EL TIEMPO
 		int secs = 0;
 		ts = clock() + CLOCKS_PER_SEC;
-		//Arbol* a = new Arbol(15, 16);
-		//a->dibujar_arbol();
-
+		Recurso* objRecurso = new Recurso;
+		objRecurso->generarRecursos();
 		while (1) {
 			if ((t = clock()) >= ts)
 			{
@@ -197,15 +195,15 @@ public:
 			}
 			if (_kbhit()) {
 				char tecla = getch();
-				borrar_jugador(x_P, y_P);
+				borrar_jugador_v3(x_P, y_P);
 
-				if (tecla == DER && (nivel_prueba[y_P][x_P + 5] == 0 && nivel_prueba[y_P + 1][x_P + 6] == 0 && nivel_prueba[y_P + 2][x_P + 6] == 0)) x_P++;
-				if (tecla == IZQ && (nivel_prueba[y_P][x_P] == 0 && nivel_prueba[y_P + 1][x_P - 1] == 0 && nivel_prueba[y_P + 2][x_P - 1] == 0)) x_P--;
-				if (tecla == ARR && (nivel_prueba[y_P][x_P] == 0 && nivel_prueba[y_P - 1][x_P + 1] == 0 && nivel_prueba[y_P - 1][x_P + 2] == 0 && nivel_prueba[y_P - 1][x_P + 3] == 0 && nivel_prueba[y_P - 1][x_P + 4] == 0 && nivel_prueba[y_P][x_P + 5] == 0)) y_P--;
-				if (tecla == ABA && (nivel_prueba[y_P][x_P] == 0 && nivel_prueba[y_P][x_P + 1] == 0 && nivel_prueba[y_P + 3][x_P + 2] == 0 && nivel_prueba[y_P + 3][x_P + 3] == 0 && nivel_prueba[y_P + 3][x_P + 4] == 0 && nivel_prueba[y_P + 3][x_P + 5] == 0)) y_P++;
+				if (tecla == DER && (fondo_juego[y_P][x_P + 5] == 0 && fondo_juego[y_P + 1][x_P + 6] == 0 && fondo_juego[y_P + 2][x_P + 6] == 0)) x_P++;
+				if (tecla == IZQ && (fondo_juego[y_P][x_P] == 0 && fondo_juego[y_P + 1][x_P - 1] == 0 && fondo_juego[y_P + 2][x_P - 1] == 0)) x_P--;
+				if (tecla == ARR && (fondo_juego[y_P][x_P] == 0 && fondo_juego[y_P - 1][x_P + 1] == 0 && fondo_juego[y_P - 1][x_P + 2] == 0 && fondo_juego[y_P - 1][x_P + 3] == 0 && fondo_juego[y_P - 1][x_P + 4] == 0 && fondo_juego[y_P][x_P + 5] == 0)) y_P--;
+				if (tecla == ABA && (fondo_juego[y_P][x_P] == 0 && fondo_juego[y_P][x_P + 1] == 0 && fondo_juego[y_P + 3][x_P + 2] == 0 && fondo_juego[y_P + 3][x_P + 3] == 0 && fondo_juego[y_P + 3][x_P + 4] == 0 && fondo_juego[y_P + 3][x_P + 5] == 0)) y_P++;
 			}
 			dibujar_jugador_v3(x_P, y_P);
-			Console::Title = "Tiempo: "+secs.ToString() + " Vidas:" + vidas.ToString()+" Semillas: "+semillas.ToString()+" Agua: "+agua.ToString()+" Reciclable"+reciclable.ToString();
+			Console::Title = "Tiempo: "+secs.ToString() + " Vidas:" + vidas.ToString()+" Semillas: "+semillas.ToString()+" Agua: "+agua.ToString()+" Reciclable: "+reciclable.ToString();
 		}
 		//Arbol* a = new Arbol(15, 16);
 		//a->dibujar_arbol();
