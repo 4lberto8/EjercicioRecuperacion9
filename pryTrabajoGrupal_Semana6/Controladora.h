@@ -78,9 +78,23 @@ public:
 				}
 			}
 		}
+		clock_t t, ts;//VARAIBLES PARA SABER EL TIEMPO
+		int secs = 0;
+		ts = clock() + CLOCKS_PER_SEC;
+		Recurso* objRecurso = new Recurso;
 		//Arbol* a = new Arbol(15, 16);
 		//a->dibujar_arbol();
+		Jugador jugador(57, 20);
+		objRecurso->generarRecursos();
+		colisionRecurso colSemillas(jugador, 0, 0);
+		colisionRecurso2 colAgua(jugador, 0, 0);
+		colisionRecurso3 colReciclables(jugador, 0, 0);
 		while (1) {
+			if ((t = clock()) >= ts)
+			{
+				++secs;
+				ts = t + CLOCKS_PER_SEC;
+			}
 			if (_kbhit()) {
 				char tecla = getch();
 				borrar_jugador_v3(x_P, y_P);
@@ -88,9 +102,15 @@ public:
 				if (tecla == IZQUIERDA && (nivel_prueba_1[y_P][x_P] == 0 && nivel_prueba_1[y_P + 1][x_P] == 0 && nivel_prueba_1[y_P + 2][x_P - 1] == 0 && nivel_prueba_1[y_P + 3][x_P + 1] == 0)) x_P--;
 				if (tecla == ARRIBA && (nivel_prueba_1[y_P][x_P] == 0 && nivel_prueba_1[y_P + 1][x_P] == 0 && nivel_prueba_1[y_P - 1][x_P + 1] == 0 && nivel_prueba_1[y_P - 1][x_P + 2] == 0 && nivel_prueba_1[y_P - 1][x_P + 3] == 0 && nivel_prueba_1[y_P][x_P + 4] == 0 && nivel_prueba_1[y_P][x_P + 5] == 0 && nivel_prueba_1[y_P + 1][x_P + 6] == 0)) y_P--;
 				if (tecla == ABAJO && (nivel_prueba_1[y_P + 3][x_P] == 0 && nivel_prueba_1[y_P + 3][x_P + 1] == 0 && nivel_prueba_1[y_P + 4][x_P + 2] == 0 && nivel_prueba_1[y_P + 4][x_P + 3] == 0 && nivel_prueba_1[y_P + 4][x_P + 4] == 0 && nivel_prueba_1[y_P + 3][x_P + 5] == 0 && nivel_prueba_1[y_P + 3][x_P + 6] == 0)) y_P++;
+				colSemillas.colisionSemillas();
+				colAgua.colisionAgua();
+				colReciclables.colisionReciclables();
 			}
 			dibujar_jugador_v3(x_P, y_P);
+			Console::Title = secs.ToString()+" Semillas:"+colSemillas.ToString();
 		}
+
+		
 	}
 	void fondo1() {
 		int fondo_juego[FILAS][COLUMNAS] = {
@@ -185,9 +205,14 @@ public:
 		clock_t t, ts;//VARAIBLES PARA SABER EL TIEMPO
 		int secs = 0;
 		ts = clock() + CLOCKS_PER_SEC;
+		Recurso* objRecurso = new Recurso;
 		//Arbol* a = new Arbol(15, 16);
 		//a->dibujar_arbol();
-
+		Jugador jugador(x_P, y_P); 
+		objRecurso->generarRecursos();
+		colisionRecurso colSemillas(jugador, 0, 0);
+		colisionRecurso2 colAgua(jugador, 0, 0);
+		colisionRecurso3 colReciclables(jugador, 0, 0);
 		while (1) {
 			if ((t = clock()) >= ts)
 			{
@@ -201,6 +226,9 @@ public:
 				if (tecla == IZQUIERDA && (fondo_juego[y_P][x_P] == 0 && fondo_juego[y_P + 1][x_P] == 0 && fondo_juego[y_P + 2][x_P - 1] == 0 && fondo_juego[y_P + 3][x_P + 1] == 0)) x_P--;
 				if (tecla == ARRIBA && (fondo_juego[y_P][x_P] == 0 && fondo_juego[y_P + 1][x_P] == 0 && fondo_juego[y_P - 1][x_P + 1] == 0 && fondo_juego[y_P - 1][x_P + 2] == 0 && fondo_juego[y_P - 1][x_P + 3] == 0 && fondo_juego[y_P][x_P + 4] == 0 && fondo_juego[y_P][x_P + 5] == 0 && fondo_juego[y_P + 1][x_P + 6] == 0)) y_P--;
 				if (tecla == ABAJO && (fondo_juego[y_P + 3][x_P] == 0 && fondo_juego[y_P + 3][x_P + 1] == 0 && fondo_juego[y_P + 4][x_P + 2] == 0 && fondo_juego[y_P + 4][x_P + 3] == 0 && fondo_juego[y_P + 4][x_P + 4] == 0 && fondo_juego[y_P + 3][x_P + 5] == 0 && fondo_juego[y_P + 3][x_P + 6] == 0)) y_P++;
+				colSemillas.colisionSemillas();
+				colAgua.colisionAgua();
+				colReciclables.colisionReciclables();
 			}
 			dibujar_jugador_v3(x_P, y_P);
 			Console::Title = secs.ToString();

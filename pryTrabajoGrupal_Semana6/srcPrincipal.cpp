@@ -11,16 +11,16 @@ using namespace std;
 int main() {
     wS(120, 36);
     Presentacion* objPresentacion = new Presentacion;
-    Recurso* objRecurso = new Recurso;
+    //Recurso* objRecurso = new Recurso;
     Juego* objJuego = new Juego;
 
     // Instanciar el jugador en una posición específica
-    Jugador jugador(57, 20); // Usamos el constructor por defecto y luego asignamos la posición si es necesario
+    /*Jugador jugador(57, 20);*/ // Usamos el constructor por defecto y luego asignamos la posición si es necesario
 
     // Crear las instancias de colisión
-    colisionRecurso colSemillas(jugador, 0, 0);
-    colisionRecurso2 colAgua(jugador, 0, 0);
-    colisionRecurso3 colReciclables(jugador, 0, 0);
+    //colisionRecurso colSemillas(jugador, 0, 0);
+    //colisionRecurso2 colAgua(jugador, 0, 0);
+    //colisionRecurso3 colReciclables(jugador, 0, 0);
 
     while (1) {
         //Console::Title = secs.ToString();
@@ -28,13 +28,11 @@ int main() {
         //objPresentacion->MENU();
         //objPresentacion->TITULO_YOUWON_v2(21, 11);
 
-        objRecurso->generarRecursos();
+        //objRecurso->generarRecursos();
         objJuego->nivel_prueba();
         //objJuego->fondo1();
 
-        colSemillas.colisionSemillas();
-        colAgua.colisionAgua();
-        colReciclables.colisionReciclables();
+
 
     }
 
