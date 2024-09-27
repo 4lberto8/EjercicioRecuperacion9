@@ -23,7 +23,6 @@ int main() {
     colisionRecurso3 colReciclables(jugador, 0, 0);
 
     while (1) {
-        //Console::Title = secs.ToString();
         //objPresentacion->LOGO_EQUIPO(); // PANTALLA PRINCIPAL
         //objPresentacion->MENU();
         //objPresentacion->TITULO_YOUWON_v2(21, 11);

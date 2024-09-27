@@ -29,13 +29,13 @@ public:
 		Console::ForegroundColor = ConsoleColor::Black;
 		cout << "    ";
 		Console::SetCursorPosition(EnmX, EnmY + 1);
-		cout << "         ";
+		cout << "       ";
 	}
 	void mover_enemigo(int direccion) {
-//Direccion 0 es ABAJO
-//Direccion 1 es ARRIBA
-//Direccion 2 es Derecha
-//Direccion 3 es Izquierda
+		//Direccion 0 es ABAJO
+		//Direccion 1 es ARRIBA
+		//Direccion 2 es Derecha
+		//Direccion 3 es Izquierda
 		if (direccion == 0) {
 			if (EnmY - 1 != uplimity) {
 				EnmY--;
@@ -56,7 +56,6 @@ public:
 				EnmX--;
 			}
 		}
-
 	}
 	int getEnmX() {
 		return EnmX;

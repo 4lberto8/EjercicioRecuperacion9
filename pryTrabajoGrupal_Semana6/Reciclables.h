@@ -24,7 +24,6 @@ public:
 		Console::SetCursorPosition(ReciX, ReciY);
 		Console::ForegroundColor = ConsoleColor::Black;
 		cout << " ";
-
 	}
 	int getReciX() {
 		return ReciX;
